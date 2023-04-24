@@ -21,6 +21,12 @@ const userSchema=new mongoose.Schema({
         unique:true,
         lowercase:true
     },
+    gender:{
+        type:String,
+        required:true,
+        trim:true,
+        lowercase:true
+    },
     email:{
         type:String,
         required:true,

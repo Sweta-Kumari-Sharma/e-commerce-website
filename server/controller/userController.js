@@ -22,12 +22,12 @@ export const loginUser=async(req,res)=>{
     try{
         const existUser=await User.findOne({userName:req.body.userName, password:req.body.password});
         if(existUser){
-            return res.status(200).json({message:'successful login', userName:req.body.userName})
+            return res.status(200).json({message:'successful login', data:existUser})
         }
         else{
             return res.status(401).json('invalid login')
         }
     }catch(e){
-        console.log(e.message);
+        res.status(500).json("error: ",e.message);
     }
 }
